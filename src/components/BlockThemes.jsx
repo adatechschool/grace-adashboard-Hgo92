@@ -1,12 +1,16 @@
 import BlockSkills from "./BlockSkills";
+import { useState } from 'react'
 
 export default function BlockThemes({ listThemes } ) {
 
+    const [isLearned, setIsLearned] = useState("no");
+
      return (<div>  
         {listThemes.map((theme) => {
-            console.log(theme.skills)
           return (<div key = {theme.id}>
-            <h1>{theme.name}</h1>
+            <div>
+                <h1>{theme.name}</h1>
+            </div>
             <BlockSkills 
             skillsList = {theme.skills}
             />

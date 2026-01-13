@@ -14,8 +14,6 @@ export default function App() {
       getData();     
   }, []); 
   
-  console.log(data)
-
   return (
     <BlockThemes
       listThemes = {data}
