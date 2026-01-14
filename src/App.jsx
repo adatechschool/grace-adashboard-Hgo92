@@ -13,10 +13,25 @@ export default function App() {
       }
       getData();     
   }, []); 
+
+  // const [status, setStatus] = useState("");
+    const removeTheme = async (id) => {
+    try {
+    await fetch(`http://localhost:3000/themes/${id}`, {
+      method:"DELETE"
+    }); 
+  // setStatus("Suppression réussie");
+  setData(prevData => prevData.filter(theme => theme.id !== id));}
+    catch (error) {
+      // setStatus("Echec de la suppression");
+      console.error(error)
+    }
+  };
   
   return (
     <BlockThemes
       listThemes = {data}
+      onRemoveTheme = {removeTheme}
     />
   )
 }
