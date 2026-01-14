@@ -4,7 +4,7 @@ import SkillItem from "./SkillItem"
 export default function BlockSkills({ skillsList, onProgressChange }) {
   const [count, setCount] = useState(0);
 
-  const handleStatusChange = (oldStatus, newStatus) => {
+  const handleProgress = (oldStatus, newStatus) => {
     let diff = 0;
     
     if (oldStatus === "yes" && newStatus !== "yes") {
@@ -16,9 +16,6 @@ export default function BlockSkills({ skillsList, onProgressChange }) {
     if (diff !== 0) {
       setCount(prev => {
         const newCount = prev + diff;
-        if (onProgressChange) {
-            onProgressChange(newCount);
-        }
         return newCount;
       });
     }
@@ -29,7 +26,7 @@ export default function BlockSkills({ skillsList, onProgressChange }) {
   return (
     <div>
       <div>
-        Progression : {progress}% ({count}/{skillsList.length} maîtrisées)
+        Progression : {progress}% ({count}/{skillsList.length} compétences maîtrisées)
       </div>
       
       <ul>
@@ -37,7 +34,7 @@ export default function BlockSkills({ skillsList, onProgressChange }) {
           <SkillItem 
             key={index} 
             skill={skill} 
-            onStatusChange={handleStatusChange}
+            checkProgress={handleProgress}
           />
         ))}
       </ul>

@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-export default function SkillItem({ skill, onStatusChange }) {
+export default function SkillItem({ skill, checkProgress }) {
   const options = [
     { value: "no", text: "Non maîtrisé" }, 
     { value: "soon", text: "En cours" }, 
@@ -14,7 +14,7 @@ export default function SkillItem({ skill, onStatusChange }) {
     const oldValue = selected;
     
     setSelected(newValue);
-    onStatusChange(oldValue, newValue);
+    checkProgress(oldValue, newValue);
   };
 
   return (

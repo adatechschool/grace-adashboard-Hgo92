@@ -1,7 +1,7 @@
 import BlockSkills from "./BlockSkills";
 
- const removeThemes = (id) => {
-  fetch(`localhost:3000/themes/${id}`, {
+ const removeThemes = async (id) => {
+  await fetch(`localhost:3000/themes/${id}`, {
     method:"DELETE"
   })
 }
@@ -13,7 +13,7 @@ export default function BlockThemes({ listThemes }) {
         <div key={theme.id}>
           <div>
             <h1>{theme.name}</h1>
-            <input type='button' value="Supprimer" onClick={() => removeThemes(theme.id)}/>
+            <button onClick={() => removeThemes(theme.id)}>Supprimer</button> 
             </div>
           <BlockSkills skillsList={theme.skills} />
         </div>
