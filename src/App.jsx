@@ -29,9 +29,10 @@ export default function App() {
   };
   
   return (
+    <div><h1>Mes compétences</h1>
     <BlockThemes
       listThemes = {data}
       onRemoveTheme = {removeTheme}
-    />
+    /></div>
   )
 }

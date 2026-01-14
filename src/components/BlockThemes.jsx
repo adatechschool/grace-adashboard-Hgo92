@@ -10,10 +10,12 @@ export default function BlockThemes({ listThemes, onRemoveTheme }) {
       {listThemes.map((theme) => (
         <div key={theme.id}>
           <div>
-            <h1>{theme.name}</h1>
+            <h2>{theme.name}</h2>
             <button onClick={() => onRemoveTheme(theme.id)}>Supprimer</button> 
             </div>
-          <BlockSkills skillsList={theme.skills} />
+          <BlockSkills 
+            skillsList={theme.skills}
+            themeId={theme.id} />
         </div>
       ))}
     </div>

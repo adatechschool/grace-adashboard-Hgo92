@@ -1,6 +1,6 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
-export default function SkillItem({ skill, checkProgress }) {
+export default function SkillItem({ skill, checkProgress, skillId }) {
   const options = [
     { value: "no", text: "Non maîtrisé" }, 
     { value: "soon", text: "En cours" }, 
@@ -9,12 +9,23 @@ export default function SkillItem({ skill, checkProgress }) {
 
   const [selected, setSelected] = useState("no");
 
+useEffect(() => {
+  const savedProgress = localStorage.getItem(`skill:${skillId}`);
+  if (savedProgress) {
+    setSelected(savedProgress);
+    if (savedProgress === "yes") {
+      checkProgress("no","yes");
+    }
+  }
+}, [skillId]);
+
   const handleChange = (e) => {
     const newValue = e.target.value;
     const oldValue = selected;
     
     setSelected(newValue);
     checkProgress(oldValue, newValue);
+    localStorage.setItem(`skill:${skillId}`, newValue);
   };
 
   return (

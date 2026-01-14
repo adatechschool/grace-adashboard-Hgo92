@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import SkillItem from "./SkillItem"
 
-export default function BlockSkills({ skillsList, onProgressChange }) {
+export default function BlockSkills({ skillsList, themeId }) {
   const [count, setCount] = useState(0);
 
   const handleProgress = (oldStatus, newStatus) => {
@@ -33,7 +33,8 @@ export default function BlockSkills({ skillsList, onProgressChange }) {
         {skillsList.map((skill, index) => (
           <SkillItem 
             key={index} 
-            skill={skill} 
+            skill={skill}
+            skillId={`${themeId}-${index}`} 
             checkProgress={handleProgress}
           />
         ))}
