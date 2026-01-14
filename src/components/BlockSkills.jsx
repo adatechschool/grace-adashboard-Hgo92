@@ -5,17 +5,17 @@ export default function BlockSkills({ skillsList, onProgressChange }) {
   const [count, setCount] = useState(0);
 
   const handleStatusChange = (oldStatus, newStatus) => {
-    let delta = 0;
+    let diff = 0;
     
     if (oldStatus === "yes" && newStatus !== "yes") {
-      delta = -1;
+      diff = -1;
     } else if (oldStatus !== "yes" && newStatus === "yes") {
-      delta = 1;
+      diff = 1;
     }
     
-    if (delta !== 0) {
+    if (diff !== 0) {
       setCount(prev => {
-        const newCount = prev + delta;
+        const newCount = prev + diff;
         if (onProgressChange) {
             onProgressChange(newCount);
         }
