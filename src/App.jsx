@@ -27,9 +27,15 @@ export default function App() {
       console.error(error)
     }
   };
+
+  const resetProgress = () => {
+  localStorage.clear();
+  window.location.reload();
+};
   
   return (
     <div><h1>Mes compétences</h1>
+    <button onClick={resetProgress}>Réinitialiser ma progression</button>
     <BlockThemes
       listThemes = {data}
       onRemoveTheme = {removeTheme}

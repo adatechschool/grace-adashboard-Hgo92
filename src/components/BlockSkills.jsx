@@ -4,7 +4,7 @@ import SkillItem from "./SkillItem"
 export default function BlockSkills({ skillsList, themeId }) {
   const [count, setCount] = useState(0);
 
-  const handleProgress = (oldStatus, newStatus) => {
+  const checkProgress = (oldStatus, newStatus) => {
     let diff = 0;
     
     if (oldStatus === "yes" && newStatus !== "yes") {
@@ -35,7 +35,7 @@ export default function BlockSkills({ skillsList, themeId }) {
             key={index} 
             skill={skill}
             skillId={`${themeId}-${index}`} 
-            checkProgress={handleProgress}
+            checkProgress={checkProgress}
           />
         ))}
       </ul>
