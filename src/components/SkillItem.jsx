@@ -31,7 +31,6 @@ useEffect(() => {
   return (
     <div>
       <li>{skill}</li>
-      <label>Statut</label>
       <select value={selected} onChange={handleChange}>
         {options.map(option => (
           <option key={option.value} value={option.value}>
