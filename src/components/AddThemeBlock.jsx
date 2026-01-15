@@ -34,6 +34,9 @@ export default function AddThemeBlock( {onClose, onAdd}) {
     try {
       const response = await fetch("http://localhost:3000/themes", {
         method: "POST",
+        headers: {
+        "Content-Type": "application/json"
+      },
         body: JSON.stringify({
           name: themeName,
           skills: filteredSkills
