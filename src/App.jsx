@@ -6,6 +6,7 @@ export default function App() {
 
 const [data, setData] = useState([])
 const [showAddTheme, setShowAddTheme] = useState(false);
+const [search, setSearch] = useState("")
 
 useEffect(() => {
     async function getData() {
@@ -44,11 +45,13 @@ useEffect(() => {
   
   return (
     <div><h1>Mes compétences</h1>
-    <button onClick={resetProgress}>Réinitialiser ma progression</button>
-    <button onClick={() => setShowAddTheme(true)}>Ajouter un thème</button>
+    <div><button onClick={resetProgress}>Réinitialiser ma progression</button>
+    <button onClick={() => setShowAddTheme(true)}>Ajouter un thème</button></div>
+    <input type="text" placeholder="Rechercher un thème" name ="name" onChange={(e) => setSearch(e.target.value)}/>
     <BlockThemes
       listThemes = {data}
       onRemoveTheme = {removeTheme}
+      search = {search}
     />
     {showAddTheme && (
         <AddThemeBlock 

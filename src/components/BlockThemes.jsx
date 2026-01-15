@@ -2,12 +2,16 @@ import { useState } from "react";
 import BlockSkills from "./BlockSkills";
 
 
-export default function BlockThemes({ listThemes, onRemoveTheme }) {
-
+export default function BlockThemes({ listThemes, onRemoveTheme, search }) {
+  const filterTheme = listThemes.filter((theme) => {
+    const s = search.trim().toLowerCase();
+    const matchSearch = s === "" || theme.name.trim().toLowerCase().includes(s);
+    return matchSearch
+  })
 
   return (
     <div>  
-      {listThemes.map((theme) => (
+      {filterTheme.map((theme) => (
         <div key={theme.id}>
           <div>
             <h2>{theme.name}</h2>
