@@ -12,11 +12,8 @@ export default function SkillItem({ skill, checkProgress, skillId }) {
 useEffect(() => {
   const savedProgress = localStorage.getItem(`skill:${skillId}`);
   if (savedProgress) {
-    setSelected(savedProgress);
-    if (savedProgress === "yes") {
-      checkProgress("no","yes");
+      setSelected(savedProgress);
     }
-  }
 }, [skillId]);
 
   const handleChange = (e) => {

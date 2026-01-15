@@ -1,8 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import SkillItem from "./SkillItem"
 
 export default function BlockSkills({ skillsList, themeId }) {
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let initialCount = 0;
+    skillsList.forEach((skill, index) => {
+      const savedProgress = localStorage.getItem(`skill:${themeId}-${index}`);
+      if (savedProgress === "yes") {
+        initialCount++;
+      }
+    });
+    setCount(initialCount);
+  }, [themeId, skillsList]);
 
   const checkProgress = (oldStatus, newStatus) => {
     let diff = 0;
