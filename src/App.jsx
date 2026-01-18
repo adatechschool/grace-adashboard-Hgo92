@@ -44,10 +44,12 @@ useEffect(() => {
 };
   
   return (
-    <div><h1>Mes compétences</h1>
-    <div><button onClick={resetProgress}>Réinitialiser ma progression</button>
-    <button onClick={() => setShowAddTheme(true)}>Ajouter un thème</button></div>
-    <input type="text" placeholder="Rechercher un thème" name ="name" onChange={(e) => setSearch(e.target.value)}/>
+    <div class="div-app-global">
+      <h1 class="titre-app">Mes compétences</h1>
+    <div class="div-button-app">
+      <button class="button-reset" onClick={resetProgress}>Réinitialiser ma progression</button>
+      <button class="button-show-add" onClick={() => setShowAddTheme(true)}>Ajouter un thème</button></div>
+    <input class="input-filter" type="text" placeholder="Rechercher un thème" name ="name" onChange={(e) => setSearch(e.target.value)}/>
     <BlockThemes
       listThemes = {data}
       onRemoveTheme = {removeTheme}

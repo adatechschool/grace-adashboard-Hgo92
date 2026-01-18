@@ -36,7 +36,7 @@ export default function BlockSkills({ skillsList, themeId }) {
 
   return (
     <div>
-      <div>
+      <div class="progress">
         Progression : {progress}% ({count}/{skillsList.length} compétences maîtrisées)
       </div>
       

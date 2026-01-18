@@ -26,11 +26,11 @@ useEffect(() => {
   };
 
   return (
-    <div>
-      <li>{skill}</li>
-      <select value={selected} onChange={handleChange}>
+    <div class="skills-div">
+      <li class="skills-titre">{skill}</li>
+      <select class="skills-select" value={selected} onChange={handleChange}>
         {options.map(option => (
-          <option key={option.value} value={option.value}>
+          <option class="skills-option" key={option.value} value={option.value}>
             {option.text}
           </option>
         ))}

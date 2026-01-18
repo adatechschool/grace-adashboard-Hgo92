@@ -55,30 +55,30 @@ export default function AddThemeBlock( {onClose, onAdd}) {
     return(<div>
       <div  className="modal-overlay">
         <div className="modal-content">
-        <h2>Ajouter un nouveau thème</h2>
-        <h3>Thème</h3>
-        <input 
+        <h2 class="theme-titre-add">Ajouter un nouveau thème</h2>
+        <h3 class="theme-titre-h3">Thème</h3>
+        <input class="input-add-theme"
             type ="text" 
             placeholder="Nom du thème" 
             value={themeName} 
             onChange={(e) => setThemeName(e.target.value)}></input>
-        <h3>Compétence</h3>
+        <h3 class= "skills-titre-h3">Compétences</h3>
         {skills.map((skill, index) => {
             return (
-          <div key={index}>
-            <input
+          <div class="add-skills-div" key={index}>
+            <input class = "input-add-skills"
             type="text"
             placeholder="Insérez une compétence"
             value={skill}
             onChange={(e) => updateSkill(index, e.target.value)}
           />
-          <button onClick={() => removeSkill(index)}>🗑️</button>
+          <button class="skills-remove" onClick={() => removeSkill(index)}>🗑️</button>
           </div>
         )})}
-        <button onClick={addSkill}>Ajouter une autre compétence</button>
-        <div>
-          <button onClick={handleSubmit}>Valider</button>
-          <button onClick={onClose}>Annuler</button>
+        <button class="skills-add-button" onClick={addSkill}>Ajouter une autre compétence</button>
+        <div class="div-valid-annul">
+          <button class="skills-add-valid" onClick={handleSubmit}>Valider</button>
+          <button class="skills-add-annul" onClick={onClose}>Annuler</button>
         </div>
       </div>
     </div>
